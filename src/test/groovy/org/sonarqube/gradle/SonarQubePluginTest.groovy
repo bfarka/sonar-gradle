@@ -135,9 +135,9 @@ class SonarQubePluginTest extends Specification {
     properties["sonar.projectKey"] == "parent"
   }
 
-  def "adds additional default properties for 'java-base' projects"() {
-    parentProject.pluginManager.apply(JavaBasePlugin)
-    childProject.pluginManager.apply(JavaBasePlugin)
+  def "adds default properties for 'java' projects"() {
+    parentProject.pluginManager.apply(JavaPlugin)
+    childProject.pluginManager.apply(JavaPlugin)
     parentProject.sourceCompatibility = 1.5
     parentProject.targetCompatibility = 1.6
     childProject.sourceCompatibility = 1.6
@@ -153,9 +153,9 @@ class SonarQubePluginTest extends Specification {
     properties["group:child.sonar.java.target"] == "1.7"
   }
 
-  def "adds additional default properties for 'groovy-base' projects"() {
-    parentProject.pluginManager.apply(GroovyBasePlugin)
-    childProject.pluginManager.apply(GroovyBasePlugin)
+  def "adds properties for 'groovy' projects"() {
+    parentProject.pluginManager.apply(GroovyPlugin)
+    childProject.pluginManager.apply(GroovyPlugin)
     parentProject.sourceCompatibility = 1.5
     parentProject.targetCompatibility = 1.6
     childProject.sourceCompatibility = 1.6
